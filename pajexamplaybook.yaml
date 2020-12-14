@@ -1,0 +1,16 @@
+---
+- name: Pajadura Exam
+  hosts: ubuntu
+
+  tasks:
+    - name: include config.yaml
+      include_vars:
+        file: config.yaml
+
+- name: Roles 
+  hosts: ubuntu
+  roles:
+    - pypaj
+    - javapaj
+    - motdpaj
+    - userpaj  

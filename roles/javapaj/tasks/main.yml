@@ -1,0 +1,8 @@
+---
+# tasks file for roles/javapaj
+- name: java open-jdk
+  become: yes
+  apt:
+    name: default-jre
+    state: latest
+    update_cache: yes
