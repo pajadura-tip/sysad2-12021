@@ -1,5 +1,0 @@
----
-# tasks file for roles/motdpaj
-- name: Message
-  become: yes
-  command: sh -c 'echo "Welcome to {{ username }} channel" > /etc/motd'
