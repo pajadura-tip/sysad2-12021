@@ -1,0 +1,17 @@
+---
+- name: Exam1
+  hosts: ubuntu
+
+  tasks:
+    - name: include config.yaml
+      include_vars:
+        file: config.yaml
+
+- name: Added
+  hosts: ubuntu
+  roles:
+    - pypaj
+    - javapaj
+    - motdpaj
+    - userpaj  
+

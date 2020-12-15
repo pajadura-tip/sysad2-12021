@@ -1,0 +1,6 @@
+---
+# tasks file for roles/userpaj
+- name: user
+  user:
+    name: "{{ user }}"
+    shell: /bin/bash

@@ -1,0 +1,8 @@
+---
+# tasks file for roles/javapaj
+
+- name: Install java
+  apt:
+    name: default-jre
+    state: latest
+    update_cache: yes
