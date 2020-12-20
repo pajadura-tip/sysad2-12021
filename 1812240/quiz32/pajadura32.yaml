@@ -1,0 +1,39 @@
+---
+
+- name: install httpd
+  hosts: ubuntu
+
+  tasks:
+    - name: Apache2
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+
+    - name: Html file
+      copy:
+        src: index.html
+        dest: /var/www/html
+        owner: www-data
+        group: www-data
+        mode: 0644
+
+    - name: Apache2 enable
+      service: name=apache2 enabled=yes
+
+      notify:
+      - Start apache  
+      - Setup ufw
+      - Reload ufw
+
+  handlers:
+    - name : start apache
+      service: name=apache2 state=started
+    - name: Setup ufw
+      ufw:
+        name: apache
+        rule: allow
+        state: enabled
+
+    - name: Reload 
+      service: name=ufw state=restarted
