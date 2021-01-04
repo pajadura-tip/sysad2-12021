@@ -1,0 +1,7 @@
+---
+- name: nagios
+  hosts: ubuntu
+  roles:
+    - pajinstall
+    - pajsetup
+    - pajplugin

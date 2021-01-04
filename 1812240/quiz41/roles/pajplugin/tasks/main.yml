@@ -1,0 +1,29 @@
+---
+- name: nagios plugins
+  unarchive:
+    src: /downloads/nagios-plugins-2.3.3.tar.gz
+    dest: /downloads
+    remote_src: yes
+
+- name: configure plugins
+  command: ./configure --with-nagios-user=nagios --with-nagios-group=nagios
+  args:
+    chdir: /downloads/nagios-plugins-2.3.3
+
+- name: compile
+  make:
+    chdir: /downloads/nagios-plugins-2.3.3
+  become: yes
+
+- name: install plugins nagios
+  make:
+    target: install
+    chdir: /downloads/nagios-plugins-2.3.3
+  become: yes
+
+- name: run nagios
+  service:
+    name: nagios
+    state: started
+
+# tasks file for roles/pajplugin

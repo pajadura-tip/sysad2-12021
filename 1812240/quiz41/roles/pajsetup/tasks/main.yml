@@ -1,0 +1,65 @@
+---
+- name: Extract 
+  unarchive:
+    src: /downloads/nagios-4.2.1.tar.gz
+    dest: /downloads
+    remote_src: yes
+
+- name: Configure Nag
+  shell: ./configure --with-command-group=nagcmd --with-command-group=nagcmd  --with-httpd_conf=/etc/apache2/sites-enabled/
+  args:
+    chdir: /downloads/nagios-4.2.1
+
+- name: make all nagios
+  make:
+    target: all 
+    chdir: /downloads/nagios-4.2.1
+
+- name: make install
+  make:
+    target: install
+    chdir: /dowloads/nagios-4.2.1
+
+- name: Install init nagios
+  make:
+    target: install-init
+    chdir: /dowloads/nagios-4.2.1
+
+- name: install config nagios
+  make:
+    target: install-config
+    chdir: /downloads/nagios-4.2.1
+
+- name: install commandmode nagios
+  make: 
+    target: install-commandmode
+    chdir: /downloads/nagios-4.2.1
+
+- name: install webconf nag
+  make:
+    target: install-webconf
+    chdir: /downloads/nagios-4.2.1
+
+- name: install pip nagios
+  apt:
+    name: python3-pip
+    state: latest
+
+- name: install htpasswd nagios
+  pip:
+    name: passlib
+    state: latest
+
+- name: add account nagios
+  htpasswd:
+    path: /usr/local/nagios/etc/htpasswd.users
+    name: nagiospaj
+    password: pajnagios
+    crypt_scheme: md5_crypt
+
+- name: Restart apache2 
+  service:
+    name: apache2
+    enabled: yes
+    state: restarted
+# tasks file for roles/pajsetup
