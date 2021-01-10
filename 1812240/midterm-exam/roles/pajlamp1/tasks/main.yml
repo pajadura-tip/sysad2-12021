@@ -1,0 +1,72 @@
+---
+- name: InstallApache
+  apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+
+- name: apache_index
+  copy:
+    content: "pajadura"
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'
+  register: apache_index
+
+- name: apache2 service
+  service: 
+    name: apache2
+    state: restarted
+    enabled: yes
+  when: apache_index.changed
+
+- name: apache2 ufw
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: mysql-server
+  apt:
+    name: mysql-server
+    state: latest
+    update_cache: yes
+
+- name: mysql index
+  copy:
+    content: "pajadura"
+    dest: /var/www/html/index1.html
+    owner: root
+    group: root
+    mode: '0644'
+  register: mysql_index
+
+- name: mysql service
+  service:
+    name: mysql
+    stated: restarted
+    enabled: yes
+  when: mysql_index.changed
+
+- name: install php
+  apt:
+    name:
+      - php
+      - php-mysql
+      - libapache2-mod-php
+    state: latest
+    update_cache: yes
+
+- name: php index
+  copy:
+    content: 'pajadura2'
+    dest: /var/www/html/index2.html
+    owner: root
+    group: root
+    mode: '0644' 
+
+
+
+
+# tasks file for roles/pajlamp1

@@ -1,0 +1,18 @@
+---
+
+- hosts: ubuntu
+  vars_files:
+    - ./pajconfig.yaml
+  roles:
+    - pajelastic
+    - pajnagios1
+    - pajnagios2
+    - pajnagios3
+    - pajgrafana
+    - pajlamp1
+
+- hosts: centos
+  roles:
+    - pajelastic2
+    - pajgrafana2
+    - pajlamp2
