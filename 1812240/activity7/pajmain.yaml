@@ -9,10 +9,8 @@
     - pajnagios2
     - pajnagios3
     - pajgrafana
-    - pajlamp1
 
 - hosts: centos
   roles:
     - pajelastic2
     - pajgrafana2
-    - pajlamp2

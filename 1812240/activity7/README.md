@@ -1,4 +1,4 @@
-###Midterm Exam
+###Activity 7
 
 ansible.cfg
 pajconfig.yaml
