@@ -1,0 +1,9 @@
+---
+
+- hosts: ubuntu
+  roles:
+    - pajubuntu
+
+- hosts: centos
+  roles:
+    - pajcentos
