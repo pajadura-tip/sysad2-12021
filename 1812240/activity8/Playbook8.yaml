@@ -1,0 +1,8 @@
+---
+
+- name: Docker Install
+  hosts: ubuntu
+  roles:
+    - dockerinstall
+    - dockeruser
+    - dockerfile
