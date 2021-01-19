@@ -1,0 +1,46 @@
+---
+- name: Dhcp
+  yum:
+    name:
+      state: latest
+      update_cache: yes
+
+- name: Bind9
+  yum:
+    name:
+      - bind-utils
+      - bind
+    state: latest
+    update_cache: yes
+
+- name: Vsftpd
+  yum:
+    name: vsftpd
+    state: latest
+    update_cache: yes
+
+- name: Samba
+  yum:
+    name:
+      - samba-common
+      - samba
+      - samba-client
+    state: latest
+    update_cache: yes
+
+- name: Httpd
+  yum:
+    name: httpd
+    state: latest
+    update_cache: yes
+
+- name: Mariadb
+  yum:
+    name: mariadb-server
+    state: latest
+    update_cache: yes
+
+
+
+
+# tasks file for roles/pajcentos

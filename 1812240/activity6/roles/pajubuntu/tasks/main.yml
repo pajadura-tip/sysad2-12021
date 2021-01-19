@@ -1,0 +1,41 @@
+---
+- name: Dhcp
+  apt:
+    name: isc-dhcp-server
+    state: latest
+    update_cache: yes
+
+- name: Bind9
+  apt:
+    name: bind9
+    state: latest
+    update_cache: yes
+
+- name: Vsftpd
+  apt:
+    name: vsftpd
+    state: latest
+    update_cache: yes
+
+- name: Samba
+  apt:
+    name: samba
+    state: latest
+    update_cache: yes
+
+- name: Httpd
+  apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+
+- name: Mariadb
+  apt:
+    name: mariadb-server
+    state: latest
+    update_cache: yes
+
+
+
+
+#tasks file for roles/pajubuntu

@@ -1,0 +1,13 @@
+---
+- name: Dhcp , Bind9, Vsftpd ,Samba , Mariadb, Httpd 
+  hosts: ubuntu
+
+  roles:
+    - pajubuntu
+
+- name: Dhcp, Bind9 , Vsftpd, Samba , Mariadb, Httpd
+  hosts: centos
+
+  roles:
+    - pajcentos
+
