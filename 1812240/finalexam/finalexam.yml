@@ -1,0 +1,130 @@
+---
+- name: gitclone centos
+  hosts:
+    - centos
+  vars_files:
+    - config.yaml
+  roles:
+    - gitclonecentos
+
+- name: Enterprise service centos
+  hosts:
+    - centos
+  vars_files:
+    - config.yaml
+  roles:
+    - ftpcentos
+
+- name: Monitoring service
+  hosts:
+    - centos
+  vars_files:
+    - config.yaml
+  roles:
+    - nagioscentos
+
+- name: MOTD
+  hosts:
+    - centos
+  vars_files:
+    - config.yaml
+  roles:
+    - motd
+
+- name: Debian
+  hosts:
+    - debian
+  vars_files:
+    - config.yaml
+  roles:
+    - gitclonedebian
+
+- name: Enterprise service deb
+  hosts:
+    - debian
+  vars_files:
+    - config.yaml
+  roles:
+    - ftpdebian
+
+- name: Monitoring service Debian
+  hosts:
+    - debian
+  vars_files:
+    - config.yaml
+  roles:
+    - nagiosdebian
+
+- name: motd debian
+  hosts:
+    - debian
+  vars_files:
+    - config.yaml
+  roles:
+    - motd
+
+- name: opensus prelims
+  hosts:
+    - suse
+  vars_files:
+    - config.yaml
+  roles:
+    - gitclonesuse
+
+- name: Enterprise service opensuse
+  hosts:
+    - suse
+  vars_files:
+    - config.yaml
+  roles:
+    - ftpsuse
+
+- name: Monitoring service Opensuse
+  hosts:
+    - suse
+  vars_files:
+    - config.yaml
+  roles:
+    - nagiossuse
+
+- name: motd opensuse
+  hosts:
+    - suse
+  vars_files:
+    - config.yaml
+  roles:
+    - motd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

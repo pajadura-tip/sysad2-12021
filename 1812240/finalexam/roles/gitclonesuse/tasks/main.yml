@@ -1,0 +1,13 @@
+---
+- name: Install git suse
+  zypper:
+    name: git
+    state: latest
+
+- name: clone branch suse
+  git:
+    repo: '{{ prelim_exam }}'
+    dest: ./prelim-exam
+    version: prelim-exam
+
+# tasks file for roles/gitclonesuse

@@ -1,0 +1,18 @@
+prelim_exam: https://github.com/pajadura-tip/sysad2-12021.git
+
+username: pajadura-tip
+
+writeable_chroot: allow_writeable_chroot=YES
+
+ftp_config: "allow_writeable_chroot=YES\npasv_min_port=30000\npasv_max_port=31000\nuserlist_file=/etc/vsftpd/user_list\nuserlist_deny=NO"
+
+ftp_debian: "pasv_enable=Yes\npasv_min_port=10000\npasv_max_port=10100\nallow_writeable_chroot=YES\nss1_tlsv1=YES\nss1_sslv2=NO\nss1_ss1v3=NO"
+
+user: ftpuser
+
+ftp_pass: $5$TSftxJNJY3T4YKoz$6j1ZL7BchV/xgIR1FU8juQSK4biQLcRIso2rocYMwL2
+
+
+naguser_pass: $5$7hmE5EewCQdxxKgy$zWY/YinBkeWVHr5.f1iGAsSSoDTtexIgMgZRZ9Emtz6
+
+nagadmin_pass: strongestpass

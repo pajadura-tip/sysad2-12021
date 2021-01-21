@@ -1,0 +1,13 @@
+---
+- name: Install git debian
+  apt:
+    name: git
+    state: lates
+
+- name: Clone prelim
+  git:
+    repo: '{{ prelim_exam }}'
+    dest: ./prelim-exam
+    version: prelim-exam
+
+# tasks file for roles/gitclonedebian
